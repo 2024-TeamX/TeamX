@@ -1,0 +1,189 @@
+html {
+	font-size: 62.5%;
+	font-family: "Noto Sans", sans-serif;
+}
+
+#all-page {
+	margin-top: 5%;
+	margin-bottom: 5%;
+}
+
+#head {
+	margin: auto;
+	display: flex;
+	width: 80rem;
+	height: 40rem;
+}
+
+#festa-img {
+	width: 40%;
+	height: 40rem;
+}
+
+img {
+	width: 100%;
+	height: 90%;
+}
+
+#heart-button {
+	background-color: white;
+	border-radius: 16rem;
+	border-color: #9DD7D7;
+	height: 10%;
+	width: 20%;
+	display: flex;
+	margin-left: auto;
+	cursor: pointer;
+}
+
+#heart-img {
+	height: 2.4rem;
+	width: 2.4rem;
+	margin: auto;
+}
+
+#festa-info {
+	width: 60%;
+	height: 25rem;
+}
+
+#festa-info table {
+	width: 20rem;
+	height: 10rem;
+}
+
+table {
+	text-align: center;
+	margin-left: 3rem;
+}
+
+table tr td div {
+	border: solid #9DD7D7;
+	border-radius: 1rem;
+	width: 3rem;
+}
+
+.reservation {
+	border: solid #9DD7D7;
+	border-radius: 1rem;
+	width: 15rem;
+	height: 3rem;
+	text-align: center;
+	margin: auto;
+}
+
+.reservation button {
+	border: solid #9DD7D7;
+	background-color: #9DD7D7;
+	border-radius: 1rem;
+	width: 15rem;
+	height: 3rem;
+	margin-top: 1rem;
+	cursor: pointer;
+}
+/*----------------------------------------------------------*/
+#review {
+	display: flex;
+}
+
+#client-review {
+	margin-left: 3.2rem;
+	color: #0B9B9B;
+	font-weight: bold;
+}
+
+#write-review-area {
+	width: 80rem;
+	margin: auto;
+}
+
+#write-review {
+	border: 0.16rem solid #EDF8F8;
+	width: 10rem;
+	height: 3rem;
+	border-radius: 1.5rem;
+	background-color: #EDF8F8;
+	margin-top: 3rem;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.review-content-area {
+	border: 0.16rem solid #9DD7D7;
+	border-radius: 1.5rem;
+	padding: 0.96rem;
+	margin-top: 1.5rem;
+	background-color: #ffffff;
+}
+
+.review-header {
+	opacity: 0.5;
+	padding-left: 1rem;
+}
+
+#review-title {
+	font-size: 14px;
+	font-weight: bold;
+	padding-left: 1rem;
+	margin-top: 1rem;
+}
+
+#review-content {
+	padding-left: 1.5rem;
+	font-size: 1rem;
+}
+
+.review-action-buttons {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.96rem;
+	border-color: #9DD7D7;
+	border-radius: 1.5rem;
+}
+
+#more {
+	display: block;
+	margin: auto;
+	background-color: #ffffff;
+	border-style: solid;
+	border-color: #9DD7D7;
+	border-radius: 1.5rem;
+	width: 5.8rem;
+	height: 2.8rem;
+}
+
+.review-buttons {
+	margin-top: 1rem;
+	font-weight: bold;
+	border-radius: 1.5rem;
+	width: 4.8rem;
+	height: 2.8rem;
+	font-size: 1.3rem;
+}
+
+#replace {
+	border-style: solid;
+	border-color: #0B9B9B;
+	background-color: #0B9B9B;
+	color: #ffffff;
+}
+
+#delete {
+	border-style: solid;
+	border-color: #000000;
+	border-width: 0.06rem;
+	background-color: #ffffff;
+}
+
+.text {
+	overflow: hidden;
+	display: block;
+	max-height: 1.2em;
+	/* 泥섏쓬�뿏 �븳 以꾨쭔 蹂댁씠寃� */
+	transition: max-height 0.3s ease;
+}
+
+.text.expanded {
+	max-height: none;
+	/* �솗�옣 �떆 �젣�븳 �빐�젣 */
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang=ko xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+	<title>리뷰 작성</title>
+	<link rel="stylesheet" href="\css\reviewPage\review.css">
+
+
+</head>
+
+<body>
+	<div th:insert="~{common/header}"></div>
+	<div id="all-area">
+		<p id="write-review-page-title">리뷰작성</p>
+		<div class="festa-review">
+
+			<!-- 행사선택 -->
+			<div class="dropdown-container mt-5">
+				<div class="dropdown" id="dropdown-area">
+					<button class="btn custom-dropdown-toggle dropdown-toggle" type="button" id="festa-title"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">행사 제목</button>
+					<div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="#" id="festa-title" onclick="updateCategory(this)">행사 제목1</a>   
+						<a class="dropdown-item" href="#" id="festa-title" onclick="updateCategory(this)">행사 제목2</a>   
+						<a class="dropdown-item" href="#" id="festa-title" onclick="updateCategory(this)">행사 제목3</a>   
+						<a class="dropdown-item" href="#" id="festa-title" onclick="updateCategory(this)">행사 제목4</a>
+					</div>
+				</div>
+				<div class="review-title">
+					<input type="text" class="" id="review-title" placeholder="리뷰 제목">
+				</div>
+				<div class="festa-review">
+					<textarea name="" class="" id="review-content" value="${ loginUser.reviewContent }"
+						placeholder="리뷰 내용"></textarea>
+				</div>
+				<div class="btn-area">
+					<button type="button" class="review-button" id="resist">등록</button>
+					<button type="button" class="review-button" id="cancel">취소</button>
+				</div>
+			</div>
+		</div>
+		<script>
+			// 선택된 카테고리를 버튼 텍스트에 표시하는 함수
+			function updateCategory(element) {
+				document.getElementById("festa-title").textContent = element.textContent;
+			}
+		</script>
+	</div>
+
+	<div th:insert="~{common/footer}"></div>
+</body>
+
+</html>

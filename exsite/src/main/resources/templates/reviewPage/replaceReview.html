@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>리뷰 수정 페이지</title>
+    <link rel="stylesheet" href="\css\reviewPage\replaceReview.css">
+    <style>
+      
+    </style>
+</head>
+
+<body>
+<div th:insert="~{common/header}"></div>
+    <div id="all-area">
+        <p id="replace-review">리뷰 수정</p>
+        <div class="review-replace-page">
+         
+            <input type="text" id="review-title">
+            
+            <textarea name="" id="review-content">기존에 입력 했던 리뷰 내용</textarea>
+            <div class="buttons">
+                <button id="replace">수정</button>
+                <button id="cancel">취소</button>
+            </div>
+        </div>
+    </div>
+   <div th:insert="~{common/footer}"></div>
+</body>
+
+</html>
