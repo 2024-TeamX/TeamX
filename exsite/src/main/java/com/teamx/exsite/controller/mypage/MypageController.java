@@ -38,7 +38,7 @@ public class MypageController {
 
 	@GetMapping("/mypage/main")
 	public String mypageMain() {
-		return "/mypage/mypageMain";
+		return "mypage/mypageMain";
 	}
 	
 	@GetMapping("/mypage/view")

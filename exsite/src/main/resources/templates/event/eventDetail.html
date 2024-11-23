@@ -16,10 +16,12 @@
     
     <!-- jQuery 사용-->
 	<script src="/lib/jQuery/jquery-3.7.1.min.js"></script>
-    
+
     <!-- 자바스크립트 -->
     <script src="/js/exhibition/exhibitionDetail.js"></script>
     <script src="/js/review/review.js"></script>
+    
+
     
 </head>
 <body>
@@ -93,16 +95,22 @@
             </div>
         </div>
     </div>
-        <!-- 티켓팅 팝업 여는 스크립트 -->
-        <script src="/js/ticketing/openTicketingPopup.js"></script>
-        <div th:insert="~{common/footer}"></div>
-        <script src="/js/ticketing/ticketingPopup.js"></script>
         
-        <input type="hidden" id="exhibitionNo" th:value="${exhibition.exhibitionNo}" />
-        <input type="hidden" id="exhibitionTitle" th:value="${exhibition.title}" />
-        <input type="hidden" id="useFee" th:value="${exhibition.useFee} == null ? '무료' : ${exhibition.useFee}+'원'" />
-        <input type="hidden" id="mainImg" th:value="${exhibition.mainImg}" />
-        <input type="hidden" id="endDate" th:value="${exhibition.endDate}" />
-        <input type="hidden" id="strtDate" th:value="${exhibition.strtDate}" />
+
+    <input type="hidden" id="exhibitionNo" th:value="${exhibition.exhibitionNo}" />
+    <input type="hidden" id="exhibitionTitle" th:value="${exhibition.title}" />
+    <input type="hidden" id="useFee" th:value="${exhibition.useFee} == null ? '무료' : ${exhibition.useFee}+'원'" />
+    <input type="hidden" id="mainImg" th:value="${exhibition.mainImg}" />
+    <input type="hidden" id="endDate" th:value="${exhibition.endDate}" />
+    <input type="hidden" id="strtDate" th:value="${exhibition.strtDate}" />
+
+    <!-- 티켓팅 팝업 여는 스크립트 -->
+    <script src="/js/ticketing/openTicketingPopup.js"></script>
+    <script src="/js/ticketing/ticketingPopup.js"></script>
+
+        <div th:insert="~{common/footer}"></div>
+
+        
+
 </body>
 </html>

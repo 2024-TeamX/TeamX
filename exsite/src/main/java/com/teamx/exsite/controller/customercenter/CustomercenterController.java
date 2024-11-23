@@ -52,14 +52,14 @@ public class CustomercenterController {
 	    
 	    }
 
-	    return "/customercenter/customerService";
+	    return "customercenter/customerService";
 	    
 	}
 	
 	@GetMapping("/customer/inquiry")
 	public String showInquiryForm() {
 		
-		return "/customercenter/inquiry";
+		return "customercenter/inquiry";
 		
 	}
 	
@@ -69,18 +69,18 @@ public class CustomercenterController {
 		UserDTO loginUser = (UserDTO) session.getAttribute("loginUser");
 	    
 	    if (loginUser == null) {
-	        return "redirect:/login";
+	        return "redirect:login";
 	    }
 
 	    Inquiry inquiryDetails = customercenterService.getInquiryById(inquiryNo);
 	    
 	    if (inquiryDetails.getUserNo() != loginUser.getUserNo()) {
-	        return "redirect:/customer/service"; // 다른 유저의 문의에 접근할 경우 리다이렉트
+	        return "redirect:customer/service"; // 다른 유저의 문의에 접근할 경우 리다이렉트
 	    }
 	    
 		model.addAttribute("inquiry", inquiryDetails);
 		
-		return "/customercenter/inquiryAnswer";
+		return "customercenter/inquiryAnswer";
 		
 	}
 	
@@ -90,7 +90,7 @@ public class CustomercenterController {
 		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
 		
 		if (loginUser == null) {
-	        return "redirect:/login";
+	        return "redirect:login";
 	    }
 		
 		Inquiry inquiry = new Inquiry();
@@ -100,7 +100,7 @@ public class CustomercenterController {
 		
 		customercenterService.saveInquiry(inquiry);
 		
-		return "redirect:/customer/service";
+		return "redirect:customer/service";
 	
 	}
 	
@@ -110,7 +110,7 @@ public class CustomercenterController {
 		 UserDTO loginUser = (UserDTO) session.getAttribute("loginUser");
 		    
 		    if (loginUser == null) {
-		        return "redirect:/login";
+		        return "redirect:login";
 		    }
 		    
 		    Inquiry inquiry = customercenterService.getInquiryById(inquiryNo);
@@ -119,7 +119,7 @@ public class CustomercenterController {
 		    	customercenterService.deleteInquiry(inquiryNo);
 		    }
         
-        return "redirect:/customer/service"; 
+        return "redirect:customer/service"; 
         
 	}
 	

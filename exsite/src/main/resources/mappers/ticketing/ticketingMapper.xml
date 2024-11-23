@@ -9,7 +9,7 @@
 							TICKET_COUNT, EXHIBITION_NO, USER_NO, NAME
 							, BUYER_NAME, BUYER_TEL)
 			VALUES (
-					#{merchantUid}, SYSDATE, #{visitDate}, DEFAULT,
+					#{merchantUid}, SYSDATE, TO_DATE(#{visitDate}, 'YYYY-MM-DD'), DEFAULT,
 					#{ticketCount}, #{exhibitionNo}, #{userNo}, #{name},
 					#{buyerName}, #{buyerTel}
 					)
@@ -35,7 +35,7 @@
 							TICKET_COUNT, EXHIBITION_NO, USER_NO, NAME,
 							BUYER_NAME, BUYER_TEL)
 			VALUES (
-					#{merchantUid}, SYSDATE, #{visitDate}, DEFAULT,
+					#{merchantUid}, SYSDATE, TO_DATE(#{visitDate}, 'YYYY-MM-DD'), DEFAULT,
 					#{ticketCount}, #{exhibitionNo}, #{userNo}, #{name},
 					#{buyerName}, #{buyerTel}
 					)

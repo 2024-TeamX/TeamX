@@ -100,7 +100,7 @@ public class ExhibitionController {
 	    model.addAttribute("reviewList", reviewList);
 	    model.addAttribute("buyer", buyer);
 	    
-	    return "/exhibition/exhibitionDetail";
+	    return "exhibition/exhibitionDetail";
 		
 	}
 	

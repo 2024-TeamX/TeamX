@@ -28,7 +28,7 @@ public class ExmapController {
 		
 		List<String> gunameList = exmapService.getDistinctGunameList();
 	    model.addAttribute("gunameList", gunameList);
-		return "/exmap/exmap";
+		return "exmap/exmap";
 	}
 	
 	/**

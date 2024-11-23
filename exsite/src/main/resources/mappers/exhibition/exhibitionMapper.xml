@@ -14,7 +14,7 @@
             CODENAME, 
             IS_FREE 
         FROM EXHIBITION
-        WHERE CODENAME = '전시/미술' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE
+        WHERE CODENAME = '전시/미술' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE AND STATUS = 'N'
     </select>
     
      <select id="getExhibitionsSortedByEndDate" resultType="com.teamx.exsite.model.vo.exhibition.ExhibitionEvent">
@@ -27,7 +27,7 @@
             CODENAME, 
             IS_FREE 
         FROM EXHIBITION
-        WHERE CODENAME = '전시/미술' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE
+        WHERE CODENAME = '전시/미술' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE AND STATUS = 'N'
         ORDER BY TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') ASC
     </select>
 
@@ -46,7 +46,7 @@
 		    JOIN REVIEW C ON B.MERCHANT_UID = C.MERCHANT_UID
 		WHERE 
 		    A.CODENAME LIKE '전시/미술' 
-		    AND TO_DATE(SUBSTR(A.EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE
+		    AND TO_DATE(SUBSTR(A.EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE AND STATUS = 'N'
 		GROUP BY 
 		    A.EXHIBITION_NO, A.TITLE, A.PLACE, A.MAIN_IMG, A.EX_DATE, A.CODENAME, A.IS_FREE
 		ORDER BY 
@@ -63,7 +63,7 @@
             CODENAME, 
             IS_FREE 
         FROM EXHIBITION
-        WHERE CODENAME = '전시/미술' AND IS_FREE = '무료' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE
+        WHERE CODENAME = '전시/미술' AND IS_FREE = '무료' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE AND STATUS = 'N'
     </select>
 
     <select id="getPaidExhibitions" resultType="com.teamx.exsite.model.vo.exhibition.ExhibitionEvent">
@@ -76,13 +76,13 @@
             CODENAME, 
             IS_FREE 
         FROM EXHIBITION
-        WHERE CODENAME = '전시/미술' AND IS_FREE = '유료' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE
+        WHERE CODENAME = '전시/미술' AND IS_FREE = '유료' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE AND STATUS = 'N'
     </select>
     
     <select id="getExhibitionById" parameterType="int" resultType="com.teamx.exsite.model.vo.exhibition.ExhibitionEvent">
    		SELECT * FROM exhibition
 		    JOIN EXHIBITION_DETAIL USING (EXHIBITION_NO)
-		WHERE EXHIBITION_NO = #{exhibitionNo}
+		WHERE EXHIBITION_NO = #{exhibitionNo} AND STATUS = 'N'
 	</select>
     
     <select id="getAllEvents" resultType="com.teamx.exsite.model.vo.exhibition.ExhibitionEvent">
@@ -95,7 +95,7 @@
             CODENAME, 
             IS_FREE 
         FROM EXHIBITION
-        WHERE CODENAME LIKE '축제%' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE
+        WHERE CODENAME LIKE '축제%' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE AND STATUS = 'N'
     </select>
     
      <select id="getEventsSortedByEndDate" resultType="com.teamx.exsite.model.vo.exhibition.ExhibitionEvent">
@@ -108,7 +108,7 @@
             CODENAME, 
             IS_FREE 
         FROM EXHIBITION
-        WHERE CODENAME LIKE '축제%' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE
+        WHERE CODENAME LIKE '축제%' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE AND STATUS = 'N'
         ORDER BY TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') ASC
     </select>
 
@@ -127,7 +127,7 @@
 		    JOIN REVIEW C ON B.MERCHANT_UID = C.MERCHANT_UID
 		WHERE 
 		    A.CODENAME LIKE '축제%' 
-		    AND TO_DATE(SUBSTR(A.EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE
+		    AND TO_DATE(SUBSTR(A.EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE AND STATUS = 'N'
 		GROUP BY 
 		    A.EXHIBITION_NO, A.TITLE, A.PLACE, A.MAIN_IMG, A.EX_DATE, A.CODENAME, A.IS_FREE
 		ORDER BY 
@@ -144,7 +144,7 @@
             CODENAME, 
             IS_FREE 
         FROM EXHIBITION
-        WHERE CODENAME LIKE '축제%' AND IS_FREE = '무료' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE
+        WHERE CODENAME LIKE '축제%' AND IS_FREE = '무료' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE AND STATUS = 'N'
     </select>
 
     <select id="getPaidEvents" resultType="com.teamx.exsite.model.vo.exhibition.ExhibitionEvent">
@@ -157,7 +157,7 @@
             CODENAME, 
             IS_FREE 
         FROM EXHIBITION
-        WHERE CODENAME LIKE '축제%' AND IS_FREE = '유료' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE
+        WHERE CODENAME LIKE '축제%' AND IS_FREE = '유료' AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE AND STATUS = 'N'
     </select>
     
     <!-- 좋아요 기능 -->
@@ -184,28 +184,28 @@
             TITLE, 
             STATUS 
         FROM EXHIBITION
-        WHERE STATUS = 'N'
+        WHERE STATUS = 'N' AND STATUS = 'N'
         ORDER BY EXHIBITION_NO
     </select>
 	
 	<!-- 관리자 페이지 전시 검색하기 -->
 	<select id="findExhibitionsByTitle" resultType="com.teamx.exsite.model.vo.exhibition.ExhibitionEvent">
         SELECT * FROM EXHIBITION 
-        WHERE TITLE LIKE '%' || #{title} || '%' AND STATUS = 'N'
+        WHERE TITLE LIKE '%' || #{title} || '%' AND STATUS = 'N' AND STATUS = 'N'
     </select>
     
     <!-- 관리자 페이지 전시관리버튼 -->
     <update id="updateExhibitionStatus">
         UPDATE EXHIBITION
         SET STATUS = #{status}
-        WHERE EXHIBITION_NO = #{exhibitionNo}
+        WHERE EXHIBITION_NO = #{exhibitionNo} AND STATUS = 'N'
     </update>
 	
 	<select id="selectLikeList">
 		SELECT A.EXHIBITION_NO, A.TITLE, A.PLACE, A.MAIN_IMG, A.EX_DATE
 		FROM EXHIBITION A
 			JOIN EXHIBITION_LIKE B ON A.EXHIBITION_NO = B.EXHIBITION_NO
-		WHERE B.USER_NO = #{userNo}
+		WHERE B.USER_NO = #{userNo} AND STATUS = 'N'
 	</select>
 	
 	<select id="searchByTitle">
@@ -218,6 +218,6 @@
             CODENAME
 		FROM EXHIBITION
 		WHERE TITLE LIKE '%' || #{ query } || '%'
-		  AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE
+		  AND TO_DATE(SUBSTR(EX_DATE, 12), 'YYYY-MM-DD') >= CURRENT_DATE AND STATUS = 'N'
 	</select>
 </mapper>

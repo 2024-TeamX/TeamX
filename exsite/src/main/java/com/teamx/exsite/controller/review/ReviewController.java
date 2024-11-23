@@ -64,7 +64,7 @@ public class ReviewController {
 		List<ReviewDTO> filteredViewedContent = reviewService.writingPossibleReviews(viewedContent, writedReview);
 		
 		model.addAttribute("viewdContent", filteredViewedContent);
-		return "/review/writeReview";
+		return "review/writeReview";
 	}
 	
 	
@@ -100,7 +100,7 @@ public class ReviewController {
 	
 	@GetMapping("/review/replace/form")
 	public String reviewReplaceForm() {
-		return "/review/replaceReview";
+		return "review/replaceReview";
 	}
 	
 	@ResponseBody

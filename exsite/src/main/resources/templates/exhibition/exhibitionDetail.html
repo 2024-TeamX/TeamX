@@ -93,10 +93,10 @@
             </div>
         </div>
     </div>
-        <!-- 티켓팅 팝업 여는 스크립트 -->
-        <script src="/js/ticketing/openTicketingPopup.js"></script>
+
         <div th:insert="~{common/footer}"></div>
-        <script src="/js/ticketing/ticketingPopup.js"></script>
+
+
         
         <input type="hidden" id="exhibitionNo" th:value="${exhibition.exhibitionNo}" />
         <input type="hidden" id="exhibitionTitle" th:value="${exhibition.title}" />
@@ -104,5 +104,9 @@
         <input type="hidden" id="mainImg" th:value="${exhibition.mainImg}" />
         <input type="hidden" id="endDate" th:value="${exhibition.endDate}" />
         <input type="hidden" id="strtDate" th:value="${exhibition.strtDate}" />
+
+        <!-- 티켓팅 팝업 여는 스크립트 -->
+        <script src="/js/ticketing/openTicketingPopup.js"></script>
+        <script src="/js/ticketing/ticketingPopup.js"></script>
 </body>
 </html>

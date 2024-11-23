@@ -35,7 +35,7 @@ public class UserController {
 
    @GetMapping("/signup")
    public String enrollForm() {
-      return "/user/enrollForm";
+      return "user/enrollForm";
    }
    
    /**
@@ -51,7 +51,7 @@ public class UserController {
          session.setAttribute("loginUser", registerUser);
       } else {
          model.addAttribute("alertMsg", "회원가입에 실패했습니다.");
-         return "/user/loginForm";
+         return "user/loginForm";
       }
       return "redirect:/";
    }
@@ -60,7 +60,7 @@ public class UserController {
    public String loginForm(Model model, @RequestParam(value = "userId", required = false) String userId) {
       if (userId != null)
          model.addAttribute("userId", userId);
-      return "/user/loginForm";
+      return "user/loginForm";
    }
 
    @GetMapping("/logout")
@@ -88,7 +88,7 @@ public class UserController {
 	
 	@GetMapping("/login/naver/callback")
 	public String naverLoginCallback() {
-		return "/user/naverCallbackPage";
+		return "user/naverCallbackPage";
 	}
 	
 	/**
@@ -132,7 +132,7 @@ public class UserController {
 		if(IntentionToJoin.equals("not")) {
 			//"not"
 			userInfoCache.remove(registerKey.substring(0, 6));
-			return "/user/loginForm";
+			return "user/loginForm";
 		}
 		JSONObject userInfo = new JSONObject(userInfoCache.get(registerKey));
 		UserDTO registerationInfo = new UserDTO();
@@ -168,7 +168,7 @@ public class UserController {
 				return "redirect:/";
 			} else if(result.get("status").equals("exist")) {
 				model.addAttribute("alertMsg", "사이트에서 가입한 이메일입니다."); 
-				return "/user/loginForm";
+				return "user/loginForm";
 			} else if(result.get("status").equals("false")) {
 				String registerKey = authService.generateAuthCode();
 				model.addAttribute("registerKey", registerKey);
@@ -176,10 +176,10 @@ public class UserController {
 				result.remove("registrationInfo");
 				
 				model.addAttribute("alertMsg", "가입하지 않은 회원입니다. 가입하시겠습니까?");
-				return "/user/googleCallbackPage";
+				return "user/googleCallbackPage";
 			} else if(result.get("status").equals("withdraw")) {
 				model.addAttribute("alertMsg", "탈퇴된 회원입니다.");
-				return "/user/loginForm";
+				return "user/loginForm";
 			}
 		
 		}
@@ -298,12 +298,12 @@ public class UserController {
 
    @GetMapping("/id/recover")
    public String findIdForm() {
-      return "/user/findIdForm";
+      return "user/findIdForm";
    }
 
    @GetMapping("/id/recover/result")
    public String findIdResult() {
-      return "/user/findIdResultForm";
+      return "user/findIdResultForm";
    }
 
    /**
@@ -316,7 +316,7 @@ public class UserController {
       if (userId != null) {
          model.addAttribute("userId", userId);
       }
-      return "/user/findPasswordFirstForm";
+      return "user/findPasswordFirstForm";
    }
 
    /**
@@ -329,7 +329,7 @@ public class UserController {
       if (userId != null) {
          model.addAttribute("userId", userId);
       }
-      return "/user/findPasswordSecondForm";
+      return "user/findPasswordSecondForm";
    }
 
    /**
@@ -351,7 +351,7 @@ public class UserController {
       UserDTO userInfo = (UserDTO)userService.idSearch(authMethod);
       if(userInfo.getUserStatus() == 'Y') {
          model.addAttribute("userId", "withDraw");
-         return "/user/findIdResultForm";
+         return "user/findIdResultForm";
       } else {
          model.addAttribute("userId", userId);
          model.addAttribute("name", name);
@@ -363,7 +363,7 @@ public class UserController {
          // code를 비밀번호 재설정 페이지로 같이 넘김
          model.addAttribute("code", code);
          System.out.println(code);
-         return "/user/changePasswordForm";
+         return "user/changePasswordForm";
       }
    }
    
